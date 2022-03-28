@@ -2,7 +2,7 @@
 
 
 1。下载模型文件慢，且容易中断
-D:\Miniconda3\envs\mmlab\Lib\site-packages\easyocr\config.py中有模型文件的url，通过第三方软件下载完成并解压后放到对应目录，
+D:\Miniconda3\envs\mmlab\Lib\site-packages\easyocr\config.py中有模型文件的url，通过第三方软件下载完成并解压后放到对应目录，【实际大小为几十到小几百M】
 目录位置在D:\Miniconda3\envs\mmlab\Lib\site-packages\easyocr\easyorc.py中有，
 
 MODULE_PATH = os.environ.get("EASYOCR_MODULE_PATH") or \
