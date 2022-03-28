@@ -1,0 +1,25 @@
+记录使用easyocr途中的几个事项
+
+
+1。下载模型文件慢，且容易中断
+D:\Miniconda3\envs\mmlab\Lib\site-packages\easyocr\config.py中有模型文件的url，通过第三方软件下载完成并解压后放到对应目录，
+目录位置在D:\Miniconda3\envs\mmlab\Lib\site-packages\easyocr\easyorc.py中有，
+
+MODULE_PATH = os.environ.get("EASYOCR_MODULE_PATH") or \
+              os.environ.get("MODULE_PATH") or \
+              os.path.expanduser("~/.EasyOCR/")
+self.model_storage_directory = MODULE_PATH + '/model'
+
+不特殊设置时，windows在C:\Users\dp\.EasyOCR\model； linux在"~/.EasyOCR/model"(linux该目录不能通过ftp查看),
+注意：要解压后把*.pth放到model目录
+
+2。打开报错
+File "D:\Miniconda3\envs\mmlab\lib\site-packages\easyocr\utils.py", line 540, in get_image_list
+    maximum_y,maximum_x = img.shape
+AttributeError: 'NoneType' object has no attribute 'shape'
+
+原因：待识别的图片完整路径下不要有中文
+
+3。 image.readtext(path)时报错：segmentation fault (core dumped)
+
+解决方法：pip install opencv-python-headless==4.5.4.60
